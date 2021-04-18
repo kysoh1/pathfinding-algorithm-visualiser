@@ -1,0 +1,11 @@
+body {
+  background-color: rgb(8, 40, 53);
+}
+
+.grid {
+  background-color: white;
+  position: absolute;
+  left: 265px;
+  top: 230px;
+  box-shadow: 0 0 20px rgb(118, 221, 247);
+}

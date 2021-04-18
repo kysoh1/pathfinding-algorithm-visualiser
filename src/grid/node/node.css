@@ -1,0 +1,133 @@
+.Node {
+    width: 24px;
+    height: 24px;
+    background-color: rgb(176, 234, 250);
+    outline: 1px solid rgb(118, 221, 247);
+    display: inline-block;
+    margin-bottom: -3px;
+    margin-right: 1px;
+}
+  
+.startNode {
+  animation-name: keyNodeAnimation;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+  background-image: url(../../styles/icons/arrow.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 90%;
+}
+
+.finishNode {
+  animation-name: keyNodeAnimation;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+  background-image: url(../../styles/icons/flag.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 90%;
+}
+
+.weightNode {
+  background-image: url(../../styles/icons/weight.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 90%;
+}
+
+.wallNode {
+  animation-name: keyNodeAnimation;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+  background-color: rgb(7, 20, 26);
+  outline: 1px solid rgb(7, 20, 26);
+}
+
+.visitedNode {
+  animation-name: visitedNodeAnimation;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+  
+.finalPathNode {
+  animation-name: shortestPath;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+  
+@keyframes keyNodeAnimation {
+  0% {
+    transform: scale(0.3);
+  }
+
+  100% {
+    transform: scale(1);
+
+  }
+}
+
+@keyframes visitedNodeAnimation {
+  0% {
+    transform: scale(0.5);
+    background-color: rgba(0, 0, 66, 0.75);
+    border-radius: 100%;
+  }
+
+  50% {
+    transform: scale(0.7);
+    background-color: rgba(15, 125, 199, 0.75);
+  }
+
+  75% {
+    transform: scale(1.1);
+    background-color: rgba(27, 152, 201, 0.75);
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgba(45, 184, 248, 0.75);
+  }
+}
+
+@keyframes shortestPath {
+  0% {
+    transform: scale(0.8);
+    background-color: rgb(67, 165, 221);
+  }
+  
+  50% {
+    transform: scale(1.1);
+    background-color: rgb(26, 103, 247);
+  }
+
+  
+  100% {
+    transform: scale(1);
+    background-color: rgb(80, 159, 233);
+  }
+}

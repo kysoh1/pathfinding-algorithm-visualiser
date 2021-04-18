@@ -1,0 +1,180 @@
+@font-face {
+    font-family: 'lato';
+    src: url(../styles/fonts/lato/lato-regular.eot);
+    src: url(../styles/fonts/lato/lato-regular.woff) format('woff'),
+         url(../styles/fonts/lato/lato-regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'source-sans-pro';
+    src: url(../styles/fonts/source-sans-pro/SourceSansPro-Regular.ttf) format('truetype');
+}
+
+/* Legend/features section */
+.infoBar {
+    overflow: hidden;
+    display: flex;
+    position: absolute;
+    margin-left: 290px;
+    margin-top: 100px;
+    color: rgb(228, 231, 228);
+}
+
+.infoTitle {
+    margin-right: 10px;
+    font-size: 30pt;
+    color: white;
+}
+
+.info {
+    display: flex;
+    position: relative;
+    font-size: 12pt;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: -3px;
+    margin-bottom: 10px;
+}
+
+/* Icons */
+.icon {
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    background-size: 60%;
+    background-repeat: no-repeat;
+    border-radius: 80%;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    box-shadow: 0 0 10px rgb(118, 221, 247);
+}
+
+.startIcon {
+    background-image: url(../styles/icons/arrow.svg);
+    background-color: rgb(157, 236, 236);
+}
+
+.finishIcon {
+    background-image: url(../styles/icons/flag.svg);
+    background-color: rgb(157, 236, 236);
+}
+
+.wallIcon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    background-color: black;
+    box-shadow: 0 0 5px rgb(118, 221, 247);
+}
+
+.weightIcon {
+    background-image: url(../styles/icons/weight.svg);
+    background-color: rgb(157, 236, 236);
+}
+
+.visitedIcon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    background-color: rgba(45, 184, 248, 0.75);
+    box-shadow: 0 0 5px rgba(45, 184, 248, 0.75);
+}
+
+.finalPathIcon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    background-color: rgb(80, 159, 233);
+    box-shadow: 0 0 5px rgb(80, 159, 233);
+}
+
+.infoDivider {
+    display: inline-block;
+    width: 1px;
+    height: 90px;
+    background-color: aliceblue;
+    margin-left: 35px;
+    box-shadow: 0 0 10px rgb(118, 221, 247);
+}
+
+/* Drop menu */
+.dropMenuContent {
+    display: none;
+    position: relative;
+    border-top: 1px black;
+}
+
+.dropMenuContent label {
+    float: left;
+    text-align: left;
+    font-size: 15pt;
+    color: rgb(228, 231, 228);
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    animation-name: dropMenuAnimation;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+
+.show {
+    display: block;
+}
+
+.aStarCheckbox {
+    position: relative;
+    width: 15px;
+    height: 15px;
+    top: -1px;
+    vertical-align: bottom;
+}
+
+.nodeCheckbox {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    top: -4px;
+    margin-right: 10px;
+    vertical-align: bottom;
+}
+
+.aStarCheckbox:hover, .nodeCheckbox:hover{
+    cursor: pointer;
+    background-color: rgb(56, 55, 55);
+}
+
+.aStarCheckbox input:checked, .nodeCheckbox input:checked {
+    background-color: #2fad59;
+}
+
+.dropMenuDivider {
+    display: inline-block;
+    width: 180px;
+    height: 1px;
+    background-color: aliceblue;
+}
+
+@keyframes dropMenuAnimation {
+    0% {
+        height: 0px;
+        opacity: 0%;
+    }
+    
+    50% {
+        height: 15px;
+        opacity: 50%;
+    }
+    
+    100% {
+        height: 30px;
+        opacity: 100%;
+    }
+}
