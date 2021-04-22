@@ -174,7 +174,7 @@ export class Elements extends React.Component {
         })
 
         return (
-            <>
+            <div className='allElements'>
                 <div className='topBar'>
                     <h1 className='topTitle'>Visualisation Tool for Pathfinding Algorithms</h1>
                     <div className='topDivider'></div>
@@ -265,7 +265,7 @@ export class Elements extends React.Component {
                         <button className='button sideButton' onClick={(event) => { this.handleAlgorithm(event, 'dfs'); }}>Depth First Search</button>
                     </div>
                 </div>
-            </>
+            </div>
         );
     }
 }

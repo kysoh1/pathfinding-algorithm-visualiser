@@ -10,6 +10,11 @@
     src: url(../styles/fonts/source-sans-pro/SourceSansPro-Regular.ttf) format('truetype');
 }
 
+.allElements {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
 /* Common attributes of all buttons */
 .button {
     cursor: pointer;
