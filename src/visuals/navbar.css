@@ -30,7 +30,7 @@
 .topBar {
     overflow: hidden;
     display: flex;
-    position: absolute;
+    position: relative;
     height: 4.15vw;
     width: 100%;
     top: 0;
@@ -103,15 +103,15 @@
 }
 
 .underTopBar {
-    position: relative;
-    top: -1.8vw;
+    position: absolute;
+    top: -35px;
 }
 
 /* Side navigation panel */
 .sideBar {
     overflow: hidden;
     height: 91.4%;
-    width: 11.45%;
+    width: 22%;
     background-color: rgb(2, 6, 41); 
     border-right: 1px solid rgb(9, 75, 87);
 }
