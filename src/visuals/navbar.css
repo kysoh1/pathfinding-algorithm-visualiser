@@ -13,6 +13,7 @@
 .allElements {
     overflow-x: hidden;
     overflow-y: hidden;
+    padding-bottom: 56.25%
 }
 
 /* Common attributes of all buttons */
@@ -28,11 +29,10 @@
 
 /* Top navigation panel */
 .topBar {
-    overflow: hidden;
     display: flex;
     position: relative;
-    height: 4.15vw;
-    width: 100%;
+    height: 4vw;
+    max-width: 100%;
     top: 0;
     color: rgb(228, 231, 228);
     background-color: #150c25;
@@ -42,14 +42,14 @@
 .topTitle {
     font-size: 3vh;
     color: rgb(228, 231, 228);
-    margin-top: 1.06%;
-    padding-left: 1.6%;
-    padding-right: 1.6%;
+    text-align: center;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
 }
 
 .topButton {
     width: 200px;
-    height: 70px;
+    height: 100%;
     background-color: #140a25;
     border: #140a25;
 }
@@ -110,7 +110,7 @@
 /* Side navigation panel */
 .sideBar {
     overflow: hidden;
-    height: 91.4%;
+    height: 91.5%;
     width: 22%;
     background-color: rgb(2, 6, 41); 
     border-right: 1px solid rgb(9, 75, 87);
@@ -118,6 +118,7 @@
 
 .sideTitle {
     font-size: 20pt;
+    text-align: center;
     color: rgb(228, 231, 228);
 }
 
@@ -125,6 +126,7 @@
     height: 58px;
     width: 98%;
     font-size: 16pt;
+    text-align: center;
     background-color: rgb(2, 6, 41); 
     border: #569c6d;
 }
