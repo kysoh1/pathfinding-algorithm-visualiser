@@ -20,7 +20,7 @@
 .button {
     cursor: pointer;
     font-family: 'source-sans-pro', Arial, Helvetica, sans-serif;
-    font-size: 1.5vw;
+    font-size: 1.4vw;
     font-weight: normal;
     text-align: center;
     color: rgb(228, 231, 228);
@@ -65,7 +65,6 @@
 .rangeLabel {
     margin-right: 15px;
     margin-left: 30px;
-    margin-top: 19px;
 }
 
 .rangeBar {
@@ -74,7 +73,7 @@
     height: 8.3%;
     border-radius: 12px;
     margin-right: 30px;
-    margin-top: 33px;
+    margin-top: 36px;
     background-color: rgb(228, 231, 228);
     outline: none;
 }
@@ -117,7 +116,7 @@
 }
 
 .sideTitle {
-    font-size: 20pt;
+    font-size: 1.4vw;
     text-align: center;
     color: rgb(228, 231, 228);
 }
@@ -125,7 +124,7 @@
 .sideButton {
     height: 58px;
     width: 98%;
-    font-size: 16pt;
+    font-size: 1.1vw;
     text-align: center;
     background-color: rgb(2, 6, 41); 
     border: #569c6d;

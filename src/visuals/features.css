@@ -22,14 +22,14 @@
 
 .infoTitle {
     margin-right: 10px;
-    font-size: 30pt;
+    font-size: 1.7vw;
     color: white;
 }
 
 .info {
     display: flex;
     position: relative;
-    font-size: 12pt;
+    font-size: 0.8vw;
     margin-left: 5px;
     margin-right: 5px;
     margin-top: -3px;
