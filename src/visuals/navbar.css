@@ -10,6 +10,11 @@
     src: url(../styles/fonts/source-sans-pro/SourceSansPro-Regular.ttf) format('truetype');
 }
 
+.allElements {
+    width: 100%;
+    height: 100%;
+}
+
 /* Common attributes of all buttons */
 .button {
     cursor: pointer;
