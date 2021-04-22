@@ -176,7 +176,7 @@ export class Elements extends React.Component {
         return (
             <div className='allElements'>
                 <div className='topBar'>
-                    <h1 className='topTitle'>Visualisation Tool for Pathfinding Algorithms</h1>
+                    <h1 className='topTitle'>Visualise Pathfinding Algorithms</h1>
                     <div className='topDivider'></div>
                     <div>
                         <button className='button topButton'>Help</button>
