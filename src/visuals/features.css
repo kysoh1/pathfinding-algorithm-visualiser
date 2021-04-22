@@ -14,9 +14,9 @@
 .infoBar {
     overflow: hidden;
     display: flex;
-    position: absolute;
-    margin-left: 15.4%;
-    margin-top: 5.3%;
+    position: relative;
+    top: 6.8vw;
+    left: 15vw;
     color: rgb(228, 231, 228);
 }
 

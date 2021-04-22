@@ -174,7 +174,7 @@ export class Elements extends React.Component {
         })
 
         return (
-            <div className='allElements'>
+            <>
                 <div className='topBar'>
                     <h1 className='topTitle'>Visualisation Tool for Pathfinding Algorithms</h1>
                     <div className='topDivider'></div>
@@ -204,66 +204,68 @@ export class Elements extends React.Component {
                         onChange={this.handleWeightChange} />
                     <div className='topDivider'></div>    
                 </div>
-                <div className='sideBar'>
-                    <h1 className='sideTitle'>Select an algorithm</h1>
-                    <div className='sideDivider'></div>
-                    <button className='button sideButton' onClick={(event) => { this.handleAlgorithm(event, 'dijkstra'); }}>Dijkstra</button>
-                    <div className='sideDivider'></div>
-                    <div className='dropMenu'>
-                        <button className='button sideButton' id='dropMenuButton' onClick={(event) => { 
-                            this.handleAlgorithm(event, 'astar');
-                            document.getElementById('heuristicsList').classList.toggle('show'); }}>
-                            A * Search
-                        </button>
-                        <div className='dropMenuContent' id='heuristicsList'>
-                            {aStarCheckboxes}
-                        </div>
+                <div className='underTopBar'>
+                    <div className='infoBar'>
+                        <h1 className='infoHeader'>Features</h1>
+                        <div className='infoDivider'></div>    
+                        <ul>
+                            <li className='info'>
+                                <div className='icon startIcon'></div>
+                                Start node
+                            </li>
+                            <li className='info'>
+                                <div className='icon finishIcon'></div>
+                                Finish node
+                            </li>
+                        </ul>
+                        <ul>
+                            <li className='info'>
+                                <div className='wallIcon'></div>
+                                Wall node
+                            </li>
+                            <li className='info'>
+                                <div className='icon weightIcon'></div>
+                                Weight node
+                            </li>
+                        </ul>
+                        <ul>
+                            <li className='info'>
+                                <div className='visitedIcon'></div>
+                                Visited node
+                            </li>
+                            <li className='info'>
+                                <div className='finalPathIcon'></div>
+                                Shortest path node
+                            </li>
+                        </ul>
+                        <div className='infoDivider'></div>
+                        <ul>
+                            {neighbourNodeCheckboxes}
+                        </ul>
+                        <div className='infoDivider'></div>
                     </div>
-                    <div className='sideDivider'></div>
-                    <button className='button sideButton' onClick={(event) => { this.handleAlgorithm(event, 'bfs');}}>Breadth First Search</button>
-                    <div className='sideDivider'></div>
-                    <button className='button sideButton' onClick={(event) => { this.handleAlgorithm(event, 'dfs'); }}>Depth First Search</button>
+                    <div className='sideBar'>
+                        <h1 className='sideTitle'>Select an algorithm</h1>
+                        <div className='sideDivider'></div>
+                        <button className='button sideButton' onClick={(event) => { this.handleAlgorithm(event, 'dijkstra'); }}>Dijkstra</button>
+                        <div className='sideDivider'></div>
+                        <div className='dropMenu'>
+                            <button className='button sideButton' id='dropMenuButton' onClick={(event) => { 
+                                this.handleAlgorithm(event, 'astar');
+                                document.getElementById('heuristicsList').classList.toggle('show'); }}>
+                                A * Search
+                            </button>
+                            <div className='dropMenuContent' id='heuristicsList'>
+                                {aStarCheckboxes}
+                            </div>
+                        </div>
+                        <div className='sideDivider'></div>
+                        <button className='button sideButton' onClick={(event) => { this.handleAlgorithm(event, 'bfs');}}>Breadth First Search</button>
+                        <div className='sideDivider'></div>
+                        <button className='button sideButton' onClick={(event) => { this.handleAlgorithm(event, 'dfs'); }}>Depth First Search</button>
+                    </div>
                 </div>
-                <div className='infoBar'>
-                    <h1 className='infoHeader'>Features</h1>
-                    <div className='infoDivider'></div>    
-                    <ul>
-                        <li className='info'>
-                            <div className='icon startIcon'></div>
-                            Start node
-                        </li>
-                        <li className='info'>
-                            <div className='icon finishIcon'></div>
-                            Finish node
-                        </li>
-                    </ul>
-                    <ul>
-                        <li className='info'>
-                            <div className='wallIcon'></div>
-                            Wall node
-                        </li>
-                        <li className='info'>
-                            <div className='icon weightIcon'></div>
-                            Weight node
-                        </li>
-                    </ul>
-                    <ul>
-                        <li className='info'>
-                            <div className='visitedIcon'></div>
-                            Visited node
-                        </li>
-                        <li className='info'>
-                            <div className='finalPathIcon'></div>
-                            Shortest path node
-                        </li>
-                    </ul>
-                    <div className='infoDivider'></div>
-                    <ul>
-                        {neighbourNodeCheckboxes}
-                    </ul>
-                    <div className='infoDivider'></div>
-                </div>
-            </div>
+            </>
         );
     }
 }
