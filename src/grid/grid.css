@@ -5,7 +5,7 @@ body {
 .grid {
   background-color: white;
   position: absolute;
-  left: 265px;
-  top: 230px;
+  left: 14%;
+  top: 24%;
   box-shadow: 0 0 20px rgb(118, 221, 247);
 }
