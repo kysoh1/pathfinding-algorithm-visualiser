@@ -5,7 +5,7 @@ import Node from './node/node';
 import { Elements } from '../visuals/elements';
 import './grid.css';
 
-const NUMCOLUMNS = 64;
+const NUMCOLUMNS = 72;
 const NUMROWS = 27;
 
 export class Grid extends React.Component {
@@ -14,7 +14,7 @@ export class Grid extends React.Component {
         this.state = {
             grid: [],
             startXY: [13, 14],
-            finishXY: [13, 50],
+            finishXY: [13, 57],
             wallMode: false,
             weightMode: false,
             changeStartNode: false,
@@ -205,10 +205,8 @@ export class Grid extends React.Component {
                     resetGrid={this.resetGrid}
                     disableNodePlacement={this.disableNodePlacement} >
                 </Elements>
-                <div>
-                    <div className='grid'>
+                <div className='grid'>
                         {this.createGridElements()}
-                    </div>
                 </div>
             </>
         );
