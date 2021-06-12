@@ -1,11 +1,11 @@
 body {
+  overflow: hidden;
   background-color: rgb(8, 40, 53);
 }
 
 .grid {
   background-color: white;
   position: absolute;
-  left: 14%;
-  top: 24%;
+  margin-left: 55px;
   box-shadow: 0 0 20px rgb(118, 221, 247);
 }
