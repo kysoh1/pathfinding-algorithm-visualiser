@@ -109,8 +109,10 @@
 }
 
 .nodeCheckbox {
-    margin-top: 8px;
-    padding: 5px 25px;
+    margin-top: 6px;
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
 }
 
 .nodeCheckbox:hover{
