@@ -10,30 +10,47 @@
     src: url(../styles/fonts/source-sans-pro/SourceSansPro-Regular.ttf) format('truetype');
 }
 
-/* Legend/features section */
-.infoBar {
+/* Feature key */
+.features {
     overflow: hidden;
     display: flex;
-    position: relative;
-    top: 6.8vw;
-    left: 15vw;
+    background-color: rgb(8, 40, 53);
+    margin: auto;
+    width: 70%;
+    padding: 30px;
+}
+
+.features a {
+    margin-top: 20px;
+    font-size: 35px;
     color: rgb(228, 231, 228);
+    text-align: left;
+    min-width: 150px;
+    font-family: 'source-sans-pro', Arial, Helvetica, sans-serif;
+    text-decoration: none;
 }
 
-.infoTitle {
-    margin-right: 10px;
-    font-size: 1.7vw;
-    color: white;
+.infoSegment {
+    display: block;
 }
 
-.info {
+.nodeInfo {
     display: flex;
-    position: relative;
-    font-size: 0.8vw;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: -3px;
-    margin-bottom: 10px;
+    padding: 5px 25px;
+}
+
+.nodeInfo a {
+    margin: auto;
+    font-size: 20px;
+}
+
+/* Clear vertical line to divide sections */
+.divider {
+    width: 1px;
+    height: 90px;
+    background-color: aliceblue;
+    margin-left: 35px;
+    box-shadow: 0 0 10px rgb(118, 221, 247);
 }
 
 /* Icons */
@@ -91,90 +108,16 @@
     box-shadow: 0 0 5px rgb(80, 159, 233);
 }
 
-.infoDivider {
-    display: inline-block;
-    width: 1px;
-    height: 90px;
-    background-color: aliceblue;
-    margin-left: 35px;
-    box-shadow: 0 0 10px rgb(118, 221, 247);
-}
-
-/* Drop menu */
-.dropMenuContent {
-    display: none;
-    position: relative;
-    border-top: 1px black;
-}
-
-.dropMenuContent label {
-    float: left;
-    text-align: left;
-    font-size: 15pt;
-    color: rgb(228, 231, 228);
-    padding-left: 50px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    animation-name: dropMenuAnimation;
-    animation-duration: 0.3s;
-    animation-timing-function: ease-out;
-    animation-delay: 0;
-    animation-direction: alternate;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
-}
-
-.show {
-    display: block;
-}
-
-.aStarCheckbox {
-    position: relative;
-    width: 15px;
-    height: 15px;
-    top: -1px;
-    vertical-align: bottom;
-}
-
 .nodeCheckbox {
-    position: relative;
-    width: 25px;
-    height: 25px;
-    top: -4px;
-    margin-right: 10px;
-    vertical-align: bottom;
+    margin-top: 8px;
+    padding: 5px 25px;
 }
 
-.aStarCheckbox:hover, .nodeCheckbox:hover{
+.nodeCheckbox:hover{
     cursor: pointer;
     background-color: rgb(56, 55, 55);
 }
 
-.aStarCheckbox input:checked, .nodeCheckbox input:checked {
+.nodeCheckbox input:checked {
     background-color: #2fad59;
-}
-
-.dropMenuDivider {
-    display: inline-block;
-    width: 180px;
-    height: 1px;
-    background-color: aliceblue;
-}
-
-@keyframes dropMenuAnimation {
-    0% {
-        height: 0px;
-        opacity: 0%;
-    }
-    
-    50% {
-        height: 15px;
-        opacity: 50%;
-    }
-    
-    100% {
-        height: 30px;
-        opacity: 100%;
-    }
 }
