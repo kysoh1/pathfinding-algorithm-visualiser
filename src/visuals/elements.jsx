@@ -7,8 +7,8 @@ import { dijkstra } from '../algorithms/dijkstra';
 import { aStarSearch, calcManhattanDistance, calcEuclideanDistance } from '../algorithms/aStarSearch';
 import { breadthFirstSearch } from '../algorithms/breadthFirstSearch';
 import { depthFirstSearch } from '../algorithms/depthFirstSearch';
-import './navbar.css';
 import './features.css';
+import './navigation.css'
 
 export class Elements extends React.Component {
     constructor() {
@@ -27,23 +27,8 @@ export class Elements extends React.Component {
         this.handleWeightChange = this.handleWeightChange.bind(this);
     }
 
-    handleAlgorithm(event, algorithm, id, heuristicFunc) {
-        if (event.target.id !== 'dropMenuButton' && !(event.target.id).includes('astar-checkbox')) {
-            if (document.getElementById('heuristicsList').classList.contains('show')) {
-                document.getElementById('heuristicsList').classList.remove('show');
-            }
-        }
-
+    handleAlgorithm(event, algorithm) {
         this.setState({ algorithm: algorithm });
-        if (id && heuristicFunc) {
-            this.setState({ heuristicFunc: heuristicFunc });
-            for(let i = 0; i < 2; i++) {
-                document.getElementById(`astar-checkbox-${i}`).checked = false;
-            }
-    
-            document.getElementById(id).checked = true;
-        }
-
     }
 
     /* Node checkbox toggle */
@@ -105,7 +90,7 @@ export class Elements extends React.Component {
         //Can't visualise during an already occurring visualisation
         if (this.state.clickVisualise) {
             const { grid, startXY, finishXY } = this.props;
-            const { algorithm, heuristicFunc, connectivity, weightValue } = this.state;
+            const { algorithm, connectivity, weightValue } = this.state;
             this.setState({ clickVisualise: false })
             this.setState({ clickClearBoard: false })
             //Clear grid
@@ -121,16 +106,14 @@ export class Elements extends React.Component {
                     visitedNodes = dijkstra(grid, startNode, finishNode, weightValue, getNeighbourNodes);
                     finalPathNodes = getFinalPathNodes(finishNode);
                     break;
-                case `astar`:
-                    if (heuristicFunc === 'manhattan') {
-                        visitedNodes = aStarSearch(grid, startNode, finishNode, weightValue, calcManhattanDistance, getNeighbourNodes);
-                        finalPathNodes = getFinalPathNodes(finishNode);
-                    } else if (heuristicFunc === 'euclidean') {
-                        visitedNodes = aStarSearch(grid, startNode, finishNode, weightValue, calcEuclideanDistance, getNeighbourNodes);
-                        finalPathNodes = getFinalPathNodes(finishNode);
-                    }
-
-                    break;    
+                case 'astar-euclidean':
+                    visitedNodes = aStarSearch(grid, startNode, finishNode, weightValue, calcEuclideanDistance, getNeighbourNodes);
+                    finalPathNodes = getFinalPathNodes(finishNode);
+                    break;
+                case 'astar-manhattan':
+                    visitedNodes = aStarSearch(grid, startNode, finishNode, weightValue, calcManhattanDistance, getNeighbourNodes);
+                    finalPathNodes = getFinalPathNodes(finishNode);
+                    break;
                 case 'bfs':
                     visitedNodes = breadthFirstSearch(grid, startNode, finishNode, getNeighbourNodes);
                     finalPathNodes = getFinalPathNodes(finishNode);
@@ -148,121 +131,99 @@ export class Elements extends React.Component {
     } 
 
     render() {
-        //Create options for different heuristic functions
-        const aStarCheckboxItems = ['manhattan', 'euclidean'];
-        const aStarCheckboxes = aStarCheckboxItems.map((item, i) => {
-            return <>
-                <div className='dropMenuDivider'></div>
-                <label>
-                    <input type='checkbox' className='aStarCheckbox' defaultChecked={this.state.heuristicFunc === item ? true : false} id={`astar-checkbox-${i}`} onChange={(event) => { this.handleAlgorithm(event, 'astar', `astar-checkbox-${i}`, item); }}/>
-                    <span>{item.charAt(0).toUpperCase() + item.slice(1)}</span>
-                </label>
-            </>
-        })
-
         //Create options for getting 4 or 8 neighbour nodes
         const neighbourNodeItems = ['4-connected', '8-connected'];
         const neighbourNodeCheckboxes = neighbourNodeItems.map((item, i) => {
             return <>
-                <li className='info'>
+                <div className='nodeInfo'>
                     <input type='checkbox' className='nodeCheckbox' defaultChecked={this.state.connectivity === item ? true : false} id={`node-checkbox-${i}`} onChange={(event) => { 
                         this.handleNodeCheckboxes(`node-checkbox-${i}`); 
                         this.setState({ connectivity: item }); }}/>
-                    <span>{item.charAt(0).toUpperCase() + item.slice(1)}</span>
-                </li>
+                    <a href='#checkbox'>{item.charAt(0).toUpperCase() + item.slice(1)}</a>
+                </div>
             </>
         })
 
         return (
-            <div className='allElements'>
-                <div className='topBar'>
-                    <h1 className='topTitle'>Visualise Pathfinding Algorithms</h1>
-                    <div className='topDivider'></div>
-                    <div>
-                        <button className='button topButton'>Help</button>
-                        <div className='dropIcon'></div>
+            <div>
+                <div className='navBar'>
+                    <a href='#title'>Visualise Pathfinding</a>
+                    <a href='#help'>Help</a>
+                    <div className='dropDown'>
+                        <button className='dropBtn'>Algorithm
+                            <i className='down arrow'></i>
+                        </button>
+                        <div className='dropDownContent'>
+                            <a href='#dijkstra' onClick={(event) => { this.handleAlgorithm(event, 'dijkstra'); }}>Dijkstra</a>
+                            <a href='#aStarE' onClick={(event) => { this.handleAlgorithm(event, 'astar-euclidean'); }}>A* (Euclidean)</a>
+                            <a href='#aStarM' onClick={(event) => { this.handleAlgorithm(event, 'astar-manhattan'); }}>A* (Manhattan)</a>
+                            <a href='#bfs' onClick={(event) => { this.handleAlgorithm(event, 'bfs');}}>Breadth First Search</a>
+                            <a href='#dfs' onClick={(event) => { this.handleAlgorithm(event, 'dfs'); }}>Depth First Search</a>
+                        </div>
                     </div>
-                    <div className='topDivider'></div>
-                    <button className='button topButton' onClick={() => { 
+                    <a href='#visualion' onClick={() => { 
                         this.props.disableNodePlacement(true); 
                         this.executePathfinder(); }}>
-                        Visualise!
-                    </button>
-                    <div className='topDivider'></div>
-                    <button className='button topButton' onClick={() => { this.state.clickClearBoard && this.props.resetGrid(false); }}>
+                        Begin Search
+                    </a>
+                    <a href='#clear' onClick={() => { this.state.clickClearBoard && this.props.resetGrid(false); }}>
                         Clear Board
-                    </button>
-                    <div className='topDivider'></div>
-                    <h2 className='button rangeLabel'>Speed</h2>
-                    <input className='rangeBar' type='range' min='1' max='100' 
-                        value={this.state.animationSpeedFactor} 
-                        onChange={this.handleSpeedChange} />
-                    <div className='topDivider'></div>
-                    <h2 className='button rangeLabel'>Weight</h2>
-                    <input className='rangeBar' type='range' min='1' max='100' 
-                        value={this.state.weightValue} 
-                        onChange={this.handleWeightChange} />
-                    <div className='topDivider'></div>    
-                </div>
-                <div className='underTopBar'>
-                    <div className='infoBar'>
-                        <h1 className='infoHeader'>Features</h1>
-                        <div className='infoDivider'></div>    
-                        <ul>
-                            <li className='info'>
-                                <div className='icon startIcon'></div>
-                                Start node
-                            </li>
-                            <li className='info'>
-                                <div className='icon finishIcon'></div>
-                                Finish node
-                            </li>
-                        </ul>
-                        <ul>
-                            <li className='info'>
-                                <div className='wallIcon'></div>
-                                Wall node
-                            </li>
-                            <li className='info'>
-                                <div className='icon weightIcon'></div>
-                                Weight node
-                            </li>
-                        </ul>
-                        <ul>
-                            <li className='info'>
-                                <div className='visitedIcon'></div>
-                                Visited node
-                            </li>
-                            <li className='info'>
-                                <div className='finalPathIcon'></div>
-                                Shortest path node
-                            </li>
-                        </ul>
-                        <div className='infoDivider'></div>
-                        <ul>
-                            {neighbourNodeCheckboxes}
-                        </ul>
-                        <div className='infoDivider'></div>
+                    </a>
+                    <div className='dropDown'>
+                        <a href='#speed'>
+                            Speed
+                            <i className='right arrow'></i>
+                        </a>
+                        <input className='rangeBar' type='range' min='1' max='100' 
+                            value={this.state.animationSpeedFactor} 
+                            onChange={this.handleSpeedChange} /> 
                     </div>
-                    <div className='sideBar'>
-                        <h1 className='sideTitle'>Select an algorithm</h1>
-                        <div className='sideDivider'></div>
-                        <button className='button sideButton' onClick={(event) => { this.handleAlgorithm(event, 'dijkstra'); }}>Dijkstra</button>
-                        <div className='sideDivider'></div>
-                        <div className='dropMenu'>
-                            <button className='button sideButton' id='dropMenuButton' onClick={(event) => { 
-                                this.handleAlgorithm(event, 'astar');
-                                document.getElementById('heuristicsList').classList.toggle('show'); }}>
-                                A * Search
-                            </button>
-                            <div className='dropMenuContent' id='heuristicsList'>
-                                {aStarCheckboxes}
-                            </div>
+                    <div className='dropDown'>
+                        <a href='#weight'>
+                            Weight
+                            <i className='right arrow'></i>
+                        </a>
+                        <input className='rangeBar' type='range' min='1' max='100' 
+                            value={this.state.weightValue} 
+                            onChange={this.handleWeightChange} />
+                    </div>
+                </div>
+                <div className='features'>
+                    <a href='#features'>Features</a>
+                    <div className='divider'></div>    
+                    <div className='infoSegment'>
+                        <div className='nodeInfo'>
+                            <i className='icon startIcon'></i>
+                            <a href='start'>Start node</a>
                         </div>
-                        <div className='sideDivider'></div>
-                        <button className='button sideButton' onClick={(event) => { this.handleAlgorithm(event, 'bfs');}}>Breadth First Search</button>
-                        <div className='sideDivider'></div>
-                        <button className='button sideButton' onClick={(event) => { this.handleAlgorithm(event, 'dfs'); }}>Depth First Search</button>
+                        <div className='nodeInfo'>
+                            <i className='icon finishIcon'></i>
+                            <a href='finish'>Finish node</a>
+                        </div>
+                    </div>
+                    <div className='infoSegment'>
+                        <div className='nodeInfo'>
+                            <i className='wallIcon'></i>
+                            <a href='wall'>Wall node</a>
+                        </div>
+                        <div className='nodeInfo'>
+                            <i className='icon weightIcon'></i>
+                            <a href='weight'>Weight node</a>
+                        </div>
+                    </div>
+                    <div className='infoSegment'>
+                        <div className='nodeInfo'>
+                            <i className='visitedIcon'></i>
+                            <a href='wall'>Visited node</a>
+                        </div>
+                        <div className='nodeInfo'>
+                            <i className='finalPathIcon'></i>
+                            <a href='weight'>Shortest path node</a>
+                        </div>
+                    </div>
+                    <div className='infoDivider'></div>
+                    <div className='infoSegment'>
+                        {neighbourNodeCheckboxes}
                     </div>
                 </div>
             </div>
