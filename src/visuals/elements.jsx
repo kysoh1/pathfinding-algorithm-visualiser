@@ -221,7 +221,7 @@ export class Elements extends React.Component {
                             <a href='weight'>Shortest path node</a>
                         </div>
                     </div>
-                    <div className='infoDivider'></div>
+                    <div className='divider'></div>
                     <div className='infoSegment'>
                         {neighbourNodeCheckboxes}
                     </div>
