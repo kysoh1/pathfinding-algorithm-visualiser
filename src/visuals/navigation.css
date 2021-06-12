@@ -1,0 +1,101 @@
+@font-face {
+    font-family: 'lato';
+    src: url(../styles/fonts/lato/lato-regular.eot);
+    src: url(../styles/fonts/lato/lato-regular.woff) format('woff'),
+         url(../styles/fonts/lato/lato-regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'source-sans-pro';
+    src: url(../styles/fonts/source-sans-pro/SourceSansPro-Regular.ttf) format('truetype');
+}
+
+.navBar {
+    overflow: hidden;
+    background-color: #150c25;
+}
+
+.navBar a {
+    float: left;
+    font-size: 22px;
+    background-color: #150c25;
+    color: rgb(228, 231, 228);
+    text-align: center;
+    padding: 14px 16px;
+    min-width: 150px;
+    font-family: 'source-sans-pro', Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+/* Dropdown menu */
+.dropDown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropDown .dropBtn {
+    font-size: 22px;  
+    border: none;
+    outline: none;
+    background-color: #150c25;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    min-width: 150px;
+    font-family: 'source-sans-pro', Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+.dropDownContent {
+    display: none;
+    position: absolute;
+    background-color: rgb(2, 6, 41);
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropDownContent a {
+    float: none;
+    font-size: 20px;  
+    color: rgb(228, 231, 228);
+    padding: 12px 16px;
+    display: block;
+    max-width: 200px;
+    text-align: left;
+}
+
+.rangeBar {
+    margin-top: 20px;
+}
+
+.navBar a:hover, .dropDown:hover .dropBtn {
+    background-color: rgb(13, 180, 202);
+}
+
+.dropDownContent a:hover {
+    background-color: rgb(12, 125, 153); 
+}
+
+.dropDown:hover .dropDownContent {
+    display: block;
+}
+
+/* Arrow icons */
+.arrow {
+    border: solid rgb(228, 231, 228);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-left: 8px;
+    margin-bottom: 4px;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
